@@ -33,5 +33,5 @@ jobs:
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp --region ap 3389"'
     - name: Connecting to CPU 2 - 7GB RAM - 256 SSD.
       run: cmd /c start.bat
-    - name: Done successfully! You can close the tab.
-      run: cmd /c loop.bat
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
