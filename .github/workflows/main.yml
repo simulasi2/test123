@@ -12,8 +12,8 @@ jobs:
     - name: Download Ngrok.
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
-        Invoke-WebRequest https://raw.githubusercontent.com/nonamedaun/githubrdp/main/start.bat -OutFile start.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/nonamedaun/githubrdp/main/loop.bat -OutFile loop.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/simulasi2/test123/main/start.bat -OutFile start.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/simulasi2/test123/main/loop.ps1 -OutFile loop.bat
     - name: Download programs.
       run: |
         Invoke-WebRequest https://raw.githubusercontent.com/nonamedaun/githubrdp/main/launcher/FastConfigVPS_v2.3.exe -OutFile "FastConfigVPS_v2.3.exe"
