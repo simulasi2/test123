@@ -34,4 +34,4 @@ jobs:
     - name: Connecting to CPU 2 - 7GB RAM - 256 SSD.
       run: cmd /c start.bat
     - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
+      run: cmd /c ping 10.10.10.10
