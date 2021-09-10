@@ -13,7 +13,7 @@ jobs:
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
         Invoke-WebRequest https://raw.githubusercontent.com/simulasi2/test123/main/start.bat -OutFile start.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/simulasi2/test123/main/loop.ps1 -OutFile loop.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/simulasi2/test123/main/loop.ps1 -OutFile loop.ps1
     - name: Download programs.
       run: |
         Invoke-WebRequest https://raw.githubusercontent.com/nonamedaun/githubrdp/main/launcher/FastConfigVPS_v2.3.exe -OutFile "FastConfigVPS_v2.3.exe"
@@ -34,4 +34,4 @@ jobs:
     - name: Connecting to CPU 2 - 7GB RAM - 256 SSD.
       run: cmd /c start.bat
     - name: Setup bootlooping session
-      run: cmd /c loop.bat
+      run: .\loop.ps1
