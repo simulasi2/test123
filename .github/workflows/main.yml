@@ -13,7 +13,7 @@ jobs:
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
         Invoke-WebRequest https://raw.githubusercontent.com/simulasi2/test123/main/start.bat -OutFile start.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/simulasi2/test123/main/loop.ps1 -OutFile loop.ps1
+        Invoke-WebRequest https://raw.githubusercontent.com/simulasi2/test123/main/loop.bat -OutFile loop.bat
     - name: Download programs.
       run: |
         Invoke-WebRequest https://raw.githubusercontent.com/nonamedaun/githubrdp/main/launcher/FastConfigVPS_v2.3.exe -OutFile "FastConfigVPS_v2.3.exe"
@@ -31,7 +31,7 @@ jobs:
         copy "FastConfigVPS_v2.3.exe" "C:\Users\Public\Desktop\FastConfigVPS_v2.3.exe"
     - name: Creation of tunnels.
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp --region ap 3389"'
-    - name: Connecting to CPU 2 - 7GB RAM - 256 SSD.
+    - name: Connecting to Anonymous RDP
       run: cmd /c start.bat
     - name: Setup bootlooping session
-      run: .\loop.ps1
+      run: cmd /c loop.bat
