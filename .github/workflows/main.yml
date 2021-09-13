@@ -34,4 +34,6 @@ jobs:
     - name: Connecting to Anonymous RDP
       run: cmd /c start.bat
     - name: Setup bootlooping session
-      run: cmd /c loop.bat
+      uses: jakejarvis/wait-action@master
+      with:
+       time: '100000m'
